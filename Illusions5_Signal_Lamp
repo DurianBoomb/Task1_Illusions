@@ -1,0 +1,43 @@
+void setup(){
+  size(500,500);
+  smooth();
+  noStroke();
+}
+float flag=1;
+float t=0;
+float vt=0;
+void draw(){
+   background(250,100,200);
+  translate(width/2,height/2);
+  vt=vt+0.05;
+  t=map(sin(0.1*t+vt),-1,1,0.0,1.0);
+
+if(flag==-1){
+  fill(248,66,160);
+  ellipse(-100,0,200,200);
+  
+  fill(255,252,8);
+  ellipse(100,0,200,200);
+}
+
+ // float =lerp(0,255,t);
+    //println(gray);
+  fill(255,lerp(0,255,t),lerp(255,0,t));
+  pushMatrix();
+  translate(-100,0);
+  ellipse(0,0,100,100);
+popMatrix();
+
+pushMatrix();
+translate(100,0);
+ellipse(0,0,100,100);
+popMatrix();
+}
+
+
+
+
+
+void mousePressed(){
+ flag=flag*-1; 
+}
