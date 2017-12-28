@@ -1,0 +1,74 @@
+void setup() {
+  size(600, 600); 
+  smooth();
+}
+
+float alpha;
+float theta;
+void draw() {
+  background(250, 100, 200);
+  
+  translate(300, 300);
+  
+  alpha=alpha+1.5;
+  
+  pushMatrix();
+  rotate(radians(alpha));
+  strokeWeight(4);
+  stroke(255);
+  for (int i=-180; i<=180; i+=60) {
+    for (int j=-180; j<=180; j+=60) {
+      pushMatrix();
+      translate(i, j);
+      line(-20, 0, 20, 0);
+      line(0, -20, 0, 20);
+      popMatrix();
+    }
+  }
+  popMatrix();
+  
+  
+  noStroke();
+
+  fill(250, 200, 100);
+  
+  pushMatrix();
+  translate(-130, 90);
+  ellipse(0, 0, 18, 18);
+  popMatrix();
+
+  pushMatrix();
+  translate(130, 90);
+  ellipse(0, 0, 18, 18);
+  popMatrix();
+
+  pushMatrix();
+  translate(0, -150);
+  ellipse(0, 0, 18, 18);
+  popMatrix();
+
+  //fill(57, 197, 187);
+  fill(250, 100, 200);
+  pushMatrix();
+  translate(0, 0);
+  ellipse(0, 0, 50, 50);
+  popMatrix();
+
+
+
+float radius=1.0;
+  pushMatrix();
+  translate(0,0);
+  theta=theta+11;
+  fill(57, 197, 187);
+  rotate(radians(theta));
+  for (int deg=0; deg<360*2; deg+=10) {
+    float angle=radians(deg);
+    float x=0+(cos(angle)*radius);
+    float y=0+(sin(angle)*radius);
+println(x,y);
+    ellipse(x, y, 5, 5);
+    radius=radius+0.34;
+  }
+  popMatrix();
+}
