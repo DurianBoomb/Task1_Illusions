@@ -1,0 +1,314 @@
+int[] y;
+int a=0;
+int j=0;
+int b=0;
+float s=0;
+float s2=1;
+float s3=0.05;
+float s4=0;
+void setup() {
+  size(500, 500);
+  //frameRate(5);
+}
+//float x1=140;
+//float x2=140*(sqrt(3)/2);
+//float x3=140*(1-0.5);
+//float x4=0;
+//float x5=-140*(1-0.5);
+//float x6=-140*(sqrt(3)/2);
+
+float x1=0;
+float x2=0;
+float x3=0;
+float x4=0;
+float x5=0;
+float x6=0;
+
+
+float vx1 =0;
+float vx2 =30;
+float vx3 =60;
+float vx4 =90;
+float vx5 =120;
+float vx6 =150;
+
+
+float Lx=0;
+float Ly=0;
+void draw() {
+
+
+
+  background(250, 100, 200);
+  translate(width/2, height/2);
+  noFill();
+  strokeWeight(5);
+  stroke(255);
+  ellipse(0, 0, 302, 302);
+  strokeWeight(3);
+
+
+  noStroke();
+  motorialBall_1();
+  motorialBall_2();
+  motorialBall_3();
+  motorialBall_4();
+  motorialBall_5();
+  motorialBall_6();
+
+
+
+
+
+
+
+
+
+
+
+  stroke(255);
+  strokeWeight(3);
+  int c=10;
+  if (mousePressed==true) {
+    b=0;
+    a=constrain(a=a+c, 0, 800);
+    //a+=5;
+    j=constrain(j=j+c, 0, 800);
+    //j+=5;
+    y=new int[j];
+    pushMatrix();
+    rotate(radians(0));
+    line(0, -350, 0, a-350);
+    popMatrix();
+
+    pushMatrix();
+    rotate(radians(30));
+    line(0, -350, 0, a-350);
+    popMatrix();
+
+    pushMatrix();
+    rotate(radians(60));
+    line(0, -350, 0, a-350);
+    popMatrix();
+
+    pushMatrix();
+    rotate(radians(90));
+    line(0, -350, 0, a-350);
+    popMatrix();
+
+    pushMatrix();
+    rotate(radians(120));
+    line(0, -350, 0, a-350);
+    popMatrix();
+
+    pushMatrix();
+    rotate(radians(150));
+    line(0, -350, 0, a-350);
+    popMatrix();
+
+
+    for (int i=y.length-1; i>0; i--) {
+      y[i]=y[i-1];
+    }
+    y[0]=j;
+  } else {
+    a=0;
+    //b++;
+    if (b<j) {
+      b+=c;
+      pushMatrix();
+      rotate(radians(0));
+      line( 0, j-350, 0, b-350);
+      popMatrix();
+
+      pushMatrix();
+      rotate(radians(30));
+      line( 0, j-350, 0, b-350);
+      popMatrix();
+
+      pushMatrix();
+      rotate(radians(60));
+      line( 0, j-350, 0, b-350);
+      popMatrix();
+
+      pushMatrix();
+      rotate(radians(90));
+      line( 0, j-350, 0, b-350);
+      popMatrix();
+
+      pushMatrix();
+      rotate(radians(120));
+      line( 0, j-350, 0, b-350);
+      popMatrix();
+      pushMatrix();
+      rotate(radians(150));
+      line( 0, j-350, 0, b-350);
+      popMatrix();
+    } 
+    if (b>=j) {
+      b=0;
+      j=0;
+    }
+  }
+  println(a, j, b);
+}
+
+
+
+
+
+void motionTrail() {  
+  Lx+=10;
+  Ly++;
+  
+   if (mousePressed==true) {
+    b=0;
+    a=constrain(a=a+5,0,500);
+    //a+=5;
+    j=constrain(j=j+5,0,500);
+    //j+=5;
+    y=new int[j];
+    line(250, 0, 250, a);
+
+    for (int i=y.length-1; i>0; i--) {
+      y[i]=y[i-1];
+    }
+    y[0]=j;
+  } else {
+    a=0;
+    //b++;
+    if (b<j) {
+      b+=5;
+      line( 250, j, 250, b);
+    } 
+    if(b>=j) {
+      b=0;
+      j=0;
+    }
+  }
+  
+  
+  
+  
+  pushMatrix();
+  rotate(0);
+  popMatrix();
+  
+   pushMatrix();
+  rotate(30);
+  line(150*cos(radians(0))-1000+Lx, 150*sin(radians(0)), 150*cos(radians(180))-200+Lx, 150*sin(radians(180)));
+  popMatrix();
+  
+   pushMatrix();
+  rotate(60);
+  line(150*cos(radians(0))-1000+Lx, 150*sin(radians(0)), 150*cos(radians(180))-200+Lx, 150*sin(radians(180)));
+  popMatrix();
+  
+  
+   pushMatrix();
+  rotate(90);
+  line(150*cos(radians(0))-1000+Lx, 150*sin(radians(0)), 150*cos(radians(180))-200+Lx, 150*sin(radians(180)));
+  popMatrix();
+  
+   pushMatrix();
+  rotate(120);
+  line(150*cos(radians(0))-1000+Lx, 150*sin(radians(0)), 150*cos(radians(180))-200+Lx, 150*sin(radians(180)));
+  popMatrix();
+  
+   pushMatrix();
+  rotate(150);
+  line(150*cos(radians(0))-1000+Lx, 150*sin(radians(0)), 150*cos(radians(180))-200+Lx, 150*sin(radians(180)));
+  popMatrix();
+  
+     pushMatrix();
+  rotate(180);
+  line(150*cos(radians(0))-1000+Lx, 150*sin(radians(0)), 150*cos(radians(180))-200+Lx, 150*sin(radians(180)));
+  popMatrix();
+  
+       pushMatrix();
+  rotate(210);
+  line(150*cos(radians(0))-1000+Lx, 150*sin(radians(0)), 150*cos(radians(180))-200+Lx, 150*sin(radians(180)));
+  popMatrix();
+  
+}
+
+
+
+void motorialBall_1(){
+  pushMatrix();
+  rotate(radians(0));
+  fill(255);
+vx1=vx1+2;
+x1=cos(radians(vx1))*140;
+
+  ellipse(x1,0,20,20);
+  popMatrix();
+
+}
+
+
+void motorialBall_2(){
+  pushMatrix();
+  rotate(radians(30));
+  //fill(255,0,0);
+  fill(255);
+vx2=vx2+2;
+x2=cos(radians(vx2))*140;
+  
+  ellipse(x2,0,20,20);
+  popMatrix();
+
+}
+
+
+void motorialBall_3() {
+  pushMatrix();
+  rotate(radians(60));
+  //fill(0, 0, 255);
+  fill(255);
+vx3=vx3+2;
+x3=cos(radians(vx3))*140;
+
+  ellipse(x3, 0, 20, 20);
+  popMatrix();
+}
+
+
+void motorialBall_4() {
+  pushMatrix();
+  rotate(radians(90));
+  //fill(255, 0, 255);
+  fill(255);
+vx4=vx4+2;
+x4=cos(radians(vx4))*140;
+  ellipse(x4, 0, 20, 20);
+  popMatrix();
+}
+
+
+void motorialBall_5(){
+  pushMatrix();
+  rotate(radians(120));
+  //fill(0,255,255);
+  fill(255);
+vx5=vx5+2;
+x5=cos(radians(vx5))*140;
+  
+  ellipse(x5,0,20,20);
+popMatrix();
+}
+
+
+void motorialBall_6(){
+  pushMatrix();
+  rotate(radians(150));
+  //fill(255,255,0);
+  fill(255);
+vx6=vx6+2;
+x6=cos(radians(vx6))*140;
+  
+  ellipse(x6,0,20,20);
+popMatrix();
+}
+
+
