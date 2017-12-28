@@ -1,0 +1,105 @@
+void setup() {
+  size(600, 600);
+  smooth();
+
+}
+float angle=0;
+float dragX,dragY;
+
+float theta=0;
+
+
+void draw() {
+background(250, 100, 200);
+
+
+  //float thetaV=0;
+  
+
+  translate(width/2, height/2);
+  
+    strokeWeight(4);
+  noFill();
+stroke(255);
+arc(0,0,140,140,radians(-120),radians(-60));
+  
+  
+  strokeWeight(2);
+   float angle=constrain(atan2(dragY,dragX),2/3*PI-2*(PI/3),-(PI/3));
+ float deg=map(degrees(angle),-120,-60,-30,30);
+ println(deg);
+ rotate(angle);
+ line(0,0,70,0);
+ float thetaV=deg;
+theta=theta+thetaV;
+
+  
+  pushMatrix();
+  noStroke();
+    rotate(radians(theta));
+  for (int i=0; i<=375; i+=30) {
+    fill(255);
+
+    ellipse(100*cos(radians(i+0)), 100*sin(radians(i)), 10, 10);
+    ellipse(120*cos(radians(i+15)), 120*sin(radians(i+15)), 15, 15);
+    ellipse(150*cos(radians(i)), 150*sin(radians(i)), 20, 20);
+    ellipse(190*cos(radians(i+15)), 190*sin(radians(i+15)), 25, 25);
+    ellipse(240*cos(radians(i)), 240*sin(radians(i)), 30, 30);
+  }
+  
+
+
+ if((pow((mouseX-300),2)+pow((mouseY-300),2)<pow(15,2))){
+     fill(57, 197, 187); 
+     
+     ellipse(100*cos(radians(0)), 100*sin(radians(0)), 10, 10);
+    ellipse(120*cos(radians(0+15)), 120*sin(radians(0+15)), 15, 15);
+    ellipse(150*cos(radians(0+30)), 150*sin(radians(0+30)), 20, 20);
+    ellipse(190*cos(radians(0+45)), 190*sin(radians(0+45)), 25, 25);
+    ellipse(240*cos(radians(60)), 240*sin(radians(60)), 30, 30);
+     
+    }else{
+     fill(255); 
+    }
+    ellipse(0,0,30,30);
+//println(mouseX-300,mouseY-300);
+    
+
+
+
+  popMatrix();
+  
+//  strokeWeight(4);
+//  noFill();
+//stroke(255);
+//arc(0,0,140,140,radians(-120),radians(-60));
+
+
+
+ 
+ //float angle=constrain(atan2(dragY,dragX),PI/3+PI,2*PI/3+PI);
+ 
+ 
+// float angle=constrain(atan2(dragY,dragX),2/3*PI-2*(PI/3),-(PI/3));
+// float deg=map(degrees(angle),-120,-60,-30,30);
+// println(deg);
+// rotate(angle);
+// line(0,0,150,0);
+// float thetaV=deg;
+//theta=theta+thetaV;
+}
+
+
+int flag=1;
+void mousePressed(){
+ flag=flag*-1;
+}
+
+
+
+void mouseDragged(){
+dragX=mouseX-300;
+
+dragY=mouseY-300;
+
+}
