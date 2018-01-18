@@ -1,0 +1,99 @@
+void setup(){
+ size(500,500);
+ smooth();
+}
+
+float t,r;
+float dragY=190;
+void draw(){
+ background(250,100,200);
+ 
+ 
+  fill(255);
+  translate(width/2,height/2);
+  
+  t=t+1;
+  
+
+  
+
+  
+  
+   noStroke();
+  pushMatrix();
+  rotate(radians(t));
+  rectMode(CENTER);
+  rect(0,0,200,200);
+  popMatrix();
+
+
+
+  pushMatrix();
+  translate(-150,-150);
+  rotate(radians(0));
+  rectMode(CORNER);
+  fill(255);
+  rect(0,0,r,r);
+  fill(255,0,0);
+ // ellipse(0,0,5,5);
+  popMatrix();
+  
+   pushMatrix();
+  translate(150,-150);
+  rotate(radians(90));
+  rectMode(CORNER);
+  fill(255);
+  rect(0,0,r,r);
+  fill(255,0,0);
+  //ellipse(0,0,5,5);
+  popMatrix();
+  
+  
+    pushMatrix();
+  translate(150,150);
+  rotate(radians(180));
+  rectMode(CORNER);
+  fill(255);
+  rect(0,0,r,r);
+  fill(255,0,0);
+  //ellipse(0,0,5,5);
+  popMatrix();
+  
+  
+    pushMatrix();
+  translate(-150,150);
+  rotate(radians(-90));
+  rectMode(CORNER);
+  fill(255);
+  rect(0,0,r,r);
+  fill(255,0,0);
+  //ellipse(0,0,5,5);
+  popMatrix();
+  
+  //ellipse(0,0,300,300);
+  
+  strokeWeight(10);
+  strokeCap(RECT);
+  stroke(255);
+  pushMatrix();
+  translate(205,0);
+  line(0,200,0,-200);
+  noStroke();
+  fill(255);
+  rectMode(CENTER);
+  rect(0,dragY,30,10);
+  r=lerp(0,150,norm(dragY,-195,195));
+  popMatrix();
+
+
+  
+}
+
+
+
+
+
+void mouseDragged(){
+ dragY=constrain(mouseY-250,-195,195); 
+ //println(dragY);
+}
