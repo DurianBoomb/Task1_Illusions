@@ -1,0 +1,60 @@
+//*click your mouse*
+
+
+void setup(){
+ size(500,500);
+ smooth();
+rectMode(CENTER);
+}
+
+float y,x,t;
+
+void draw(){
+ background(250,100,200);
+ translate(width/2,height/2);
+ rotate(radians(45));
+ fill(255);
+  noStroke();
+  
+  t=t+4;
+  
+  //colum
+ pushMatrix();
+ y=cos(radians(t))*10;
+ translate(0,y);
+ rect(0,80,80,10);
+ rect(0,-80,80,10);
+ popMatrix();
+ 
+ 
+ //raw
+  pushMatrix();
+  x=sin(radians(t))*10;
+  translate(x,0);
+ rect(-80,0,10,80);
+ rect(80,0,10,80);
+ popMatrix();
+ 
+ if(mousePressed==true){
+ 
+ pushMatrix();
+ translate(-85,-85);
+ rect(0,0,80,80);
+ popMatrix();
+ 
+  pushMatrix();
+ translate(85,85);
+ rect(0,0,80,80);
+ popMatrix();
+ 
+  pushMatrix();
+ translate(-85,85);
+ rect(0,0,80,80);
+ popMatrix();
+ 
+  pushMatrix();
+ translate(85,-85);
+ rect(0,0,80,80);
+ popMatrix();
+ }
+}
