@@ -1,0 +1,117 @@
+void setup() {
+  size(1100, 700);
+  smooth();
+}
+
+void draw() {
+  background(60, 130, 230);
+  translate(width/2, height/2);
+
+  //0
+  //11 is the total
+
+  for (int i=0; i<=10; i+=1) {
+    pushMatrix();
+    translate(-400+i*80, -280);
+    rotate(radians(i*30));
+    Element(50, 90);
+    popMatrix();
+  }
+
+  //1
+
+  for (int i=11; i<=21; i+=1) {
+    pushMatrix();
+    translate(-400+(i-11)*80, -280+80*1);
+    rotate(radians(i*30));
+    Element(50, 90);
+    popMatrix();
+  }
+
+  //2
+  for (int i=22; i<=32; i+=1) {
+    pushMatrix();
+    translate(-400+(i-22)*80, -280+80*2);
+    rotate(radians(i*30));
+    Element(50, 90);
+    popMatrix();
+  }
+
+
+
+  //3
+  for (int i=33; i<=43; i+=1) {
+    pushMatrix();
+    translate(-400+(i-33)*80, -280+80*3);
+    rotate(radians(i*30));
+    Element(50, 90);
+    popMatrix();
+  }
+
+  //4
+  for (int i=44; i<=54; i+=1) {
+    pushMatrix();
+    translate(-400+(i-44)*80, -280+80*4);
+    rotate(radians(i*30));
+    Element(50, 90);
+    popMatrix();
+  }
+
+  //5
+  for (int i=55; i<=65; i+=1) {
+    pushMatrix();
+    translate(-400+(i-55)*80, -280+80*5);
+    rotate(radians(i*30));
+    Element(50, 90);
+    popMatrix();
+  }
+
+
+  //6
+  for (int i=66; i<=76; i+=1) {
+    pushMatrix();
+    translate(-400+(i-66)*80, -280+80*6);
+    rotate(radians(i*30));
+    Element(50, 90);
+    popMatrix();
+  }
+
+  //7
+  for (int i=77; i<=87; i+=1) {
+    pushMatrix();
+    translate(-400+(i-77)*80, -280+80*7);
+    rotate(radians(i*30));
+    Element(50, 90);
+    popMatrix();
+  }
+
+  ////for loop
+  //for(int j=0;j<=7;j++){
+  //for(int i=j*11;i<=j*(j+1)-1;i+=1){
+  //    pushMatrix();
+  //    translate(-500+(i-j*11)*80,-300+80*j);
+  //    rotate(radians(i*30));
+  //    Element(50,90);
+  //    popMatrix();
+  //  }
+  //}
+}
+
+
+
+
+void Element(int wide,int rotate){
+  int heigh=wide/2;
+  
+
+  noStroke();
+ 
+  rotate(radians(rotate));
+  fill(255);
+   arc(0,0,wide,heigh,radians(0),radians(180)); 
+   fill(0);
+   arc(0,0,wide,heigh,radians(180),radians(360)); 
+   fill(170,200,10);
+   ellipse(0,0,wide-(wide/5),heigh-(heigh/5));
+
+}
