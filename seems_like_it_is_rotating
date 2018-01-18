@@ -1,0 +1,136 @@
+void setup() {
+  size(1300, 700);
+  smooth();
+   noLoop();
+  rectMode(CENTER);
+  noStroke();
+}
+float a1=600;
+void draw() {
+  background(255);
+  translate(width/2, height/2);
+pushMatrix();
+scale(1.0);
+translate(-563,-454);
+scale(0.5);
+for(int i=1;i<=4;i++){
+  for(int j=1;j<=3;j++){
+    pushMatrix();
+    translate(i*lerp(0,600,15.0/20.0),j*lerp(0,600,15.0/20.0));
+    Circle_Unit();
+    popMatrix();
+  }
+}
+pushMatrix();
+translate(lerp(0,600,15.0/20.0)/2,lerp(0,600,15.0/20.0)/2);
+for(int i=1;i<=3;i++){
+  for(int j=1;j<=2;j++){
+    pushMatrix();
+    translate(i*lerp(0,600,15.0/20.0),j*lerp(0,600,15.0/20.0));
+    Circle_Unit();
+    popMatrix();
+    
+  }
+}
+popMatrix();
+
+popMatrix();
+}
+
+
+void Circle_Unit(){
+    for(int i=1;i<=40;i++){
+    pushMatrix();
+    rotate(radians(i*18));
+    arc_u(600,600);
+    popMatrix();
+  }
+  noLoop();
+}
+
+
+void arc_u(float a, float b) {
+
+
+  for (int i=1; i<=15; i++) {
+    b=lerp(0, b, 15.0/20.0);
+    if ((i%2)==0) {
+      fill(0);
+    } else {
+      fill(255);
+    }
+    arc(0, 0, b, b, radians(9), radians(18));
+  }
+
+
+  for (int i=1; i<=15; i++) {
+    a=lerp(0, a, 15.0/20.0);
+
+
+
+
+
+
+
+    if ((i%2)==0) {
+      fill(255);
+    } else {
+      fill(0);
+    }
+
+    //    float r=lerp(0,600,15.0/20.0)/2.0-(lerp(0,600,15.0/20.0)-lerp(0,lerp(0,600,15.0/20.0),15.0/20.0));
+
+    //pushMatrix();
+    //fill(0,255,0);
+    //translate(r*cos(radians(9)),r*sin(radians(9)));
+    //rotate(radians(9));
+    //ellipse(0,0,(lerp(0,600,15.0/20.0)-lerp(0,lerp(0,600,15.0/20.0),15/20))/2,20);
+    //popMatrix();
+
+    //fill(
+    //ellipse(100,100,10,10);
+
+    arc(0, 0, a, a, radians(0), radians(9));
+
+
+ pushMatrix();
+    fill(255, 255, 0);
+    translate((a/2.0-(a-lerp(0, a, 15.0/20.0))/2/2)*cos(radians(0)), (a/2.0-(a-lerp(0, a, 15.0/20.0))/2/2)*sin(radians(0)));
+    rotate(radians(0));
+    ellipse(0, 0, (a-lerp(0, a, 15.0/20.0))/2, 20*pow(15.0/20.0,(i-1)));
+    popMatrix();
+
+
+
+    pushMatrix();
+    fill(0, 125, 255);
+    translate((a/2.0-(a-lerp(0, a, 15.0/20.0))/2/2)*cos(radians(9)), (a/2.0-(a-lerp(0, a, 15.0/20.0))/2/2)*sin(radians(9)));
+    rotate(radians(9));
+    ellipse(0, 0, (a-lerp(0, a, 15.0/20.0))/2, 20*pow(15.0/20.0,(i-1)));
+    popMatrix();
+    
+    noLoop();
+  }
+
+
+
+
+
+
+  //float r=a/2.0-(a-lerp(0,a,15.0/20.0));
+
+  //pushMatrix();
+  //fill(0,255,0);
+  //translate(r*cos(radians(9)),r*sin(radians(9)));
+  //rotate(radians(9));
+  //ellipse(0,0,(a-lerp(0,a,15/20))/2,20);
+
+  //popMatrix();
+
+
+
+
+
+  // noLoop();
+}
+
