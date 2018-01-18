@@ -3,46 +3,63 @@ void setup() {
   smooth();
   //frameRate(100);
 }
-float t, theta,alpha;
+float t, theta, alpha;
 void draw() {
   background(250, 100, 200); 
   translate(250, 250);
   noStroke();
-  
+
   pushMatrix();
-  t=t+2;
-      println(sin(radians(t)));
-  //if (t%2==0) {
-    theta=theta+30*1;
-    //rotate(radians(theta));
-    //println(radians(t));
-  //}
+  t=t+1;
+  println(sin(radians(t)));
+  if (t%15==0) {
+  theta=theta+30*1;
+  }
 
   rotate(radians(theta));
   for (float i=31; i<=360; i=i+30) {
 
-    fill(255);
-    ellipse(180*cos(radians(i)), 180*sin(radians(i)), 50, 50);
+
+    circle_unit(180*cos(radians(i)), 180*sin(radians(i)));
   }
-  filter(BLUR, 10);
-  
+  // filter(BLUR, 10);
+
   popMatrix();
-    
-float radius=1.0;
-pushMatrix();
-alpha=alpha+50;
-fill(57, 197, 187);
-rotate(radians(alpha));
-for(int deg=0;deg<360*2;deg+=11){
- float angle=radians(deg);
- float x=0+(cos(angle)*radius);
- float y=0+(sin(angle)*radius);
 
- ellipse(x,y,5,5);
- radius=radius+0.34;
 
-}
- popMatrix();
-  
+
+
+
+  float radius=1.0;
+  pushMatrix();
+  alpha=alpha+14;
+  fill(57, 197, 187);
+  rotate(radians(alpha));
+  for (int deg=0; deg<360*2; deg+=11) {
+    float angle=radians(deg);
+    float x=0+(cos(angle)*radius);
+    float y=0+(sin(angle)*radius);
+
+    ellipse(x, y, 5, 5);
+    radius=radius+0.34;
+  }
+  popMatrix();
+
   //popMatrix();
+}
+
+
+
+
+
+void circle_unit(float x,float y){
+  for(int i=1;i<=80;i++){
+      color from = color(255,15);
+    color to=color(255,0);
+    float mi=map(i, 1, 80, 0.0, 1.0);
+    color c=lerpColor(from, to, mi);
+    fill(c);
+    ellipse(x,y,i,i);
+  }
+  
 }
